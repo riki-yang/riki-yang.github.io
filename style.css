@@ -2,6 +2,36 @@
     font-family: "Ubuntu"; 
     src: url("fonts\Ubuntu-Regular.ttf"); 
 }
+
+#warning-message { display: none; }
+@media only screen and (orientation:portrait) and (max-device-width: 20cm) {
+    #wrapper { display:none; }
+    #warning-message { display:block; }
+}
+@media only screen and (orientation:landscape) and (min-device-width: 20cm){
+    #warning-message { display:none; }
+}
+@media only screen and (max-device-width: 20cm) {
+    .name {
+        font-size: large;
+    }
+    .main-nav {
+        font-size: medium;
+    }
+    .current {
+        font-size: medium;
+    }
+    .visited {
+        font-size: small;
+    }
+    .large {
+        font-size: medium;
+    }
+    .contact {
+        font-size: x-small;
+    }
+}
+
 html {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -35,7 +65,7 @@ body {
 .contact {
     text-align: right;
     width: 19vw;
-    margin: auto;
+    /* margin: auto; */
     bottom: 0;
     position: fixed;
 }
