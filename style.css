@@ -102,6 +102,9 @@ li {
     height: 100vh;
     margin-left: 20px;
 }
+img {
+    pointer-events: none;
+}
 @media only screen and (max-width: 850px) {
     .name {
         font-size: medium;
