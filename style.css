@@ -22,8 +22,15 @@ body {
     height: 100vh;
 }
 .visited {
+    font-size: medium;
+    display: inline-block;
     color: darkgrey;
     text-decoration: none;
+    transition: all .2s;
+}
+.visited:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
 .contact {
     text-align: right;
@@ -35,9 +42,15 @@ body {
 .large {
     font-size: large;
 }
-.nostyle {
+.inst {
+    display: inline-block;
     color: black;
     text-decoration: none;
+    transition: transform .2s;
+}
+.inst:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
 .slide {
     width: 100vh;
@@ -56,15 +69,12 @@ body {
 }
 li {
     list-style: none;
-    transition: all 0.4s;
+    transition: transform .4s;
 }
 .current {
     font-size: large;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-.visited.hover {
-    transform: scale(1.1);
 }
 .contents {
     display: flex;
