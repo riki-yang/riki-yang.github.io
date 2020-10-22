@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CS Festival 2020</title>
+    <link rel="stylesheet" href="honsai.css">
+</head>
+
+<body>
+  <!-- mostly hidden full-page navigation -->
+  <div id="kumonav" class="overlay full-page">
+    <div class="kumoleft">
+        <a class="kumonav">
+            <img src="images/honsai/kumoleft.svg" alt="kumonav" class="kumoitself desktop" href="javascript:void(0)" onclick="NavAction()" style="cursor:pointer">
+            <img src="images/honsai/kumoleftmobile.svg" alt="kumonav" class="kumoitself mobile" href="javascript:void(0)" onclick="NavAction()" style="cursor:pointer">
+        </a>  
+    </div>
+    <div class="nav">
+      <a href="#"><img src="images/honsai/tenjilogo.png" class="navlogo"></a>
+      <a href="#"><img src="images/honsai/stagelogo.png" class="navlogo"></a>
+      <a href="#"><img src="images/honsai/eventlogo.png" class="navlogo"></a>
+      <a href="#"><img src="images/honsai/marketlogo.png" class="navlogo"></a>
+      <a href="#"><img src="images/honsai/SNS.png" class="navlogo"></a>
+      <a href="#"><img src="images/honsai/Q&A.png" class="navlogo"></a>
+    </div>
+  </div>
+  <!-- welcome parts -->
+  <div class="full-page beige">
+    <div class="header8">
+      <img src="images/honsai/moodbutton.png" alt="mood button" class="moodbuttondsk desktop" onclick="playSound()" style="cursor:pointer"> 
+    </div>
+    <img src="images/honsai/mood.gif" alt="mood animation" class="moodanime">
+    <img src="images/honsai/moodbutton.png" alt="mood button" class="moodbuttonmbl mobile" onclick="playSound()" style="cursor:pointer">     
+  </div>
+  <div class="tree-page beige">
+    <img src="images/honsai/treebkgdfull.svg" alt="trees" class="treebkgd">
+    <img src="images/honsai/csf2020web.svg" alt="Creative Spiral Festival 2020 Web" class="infotext1">
+    <img src="images/honsai/generalinfo.svg" alt="東京造形大学芸術祭MOOD" class="infotext2">
+    <img src="images/honsai/littlebug.svg" alt="littlebug" class="littlebug">
+  </div>
+  <div class="welcome-page beige">
+    <img src="images/honsai/welcomemessage.svg" alt="MOODメッセージ" class="welcomemessage">
+    <img src="images/honsai/welcome.svg" alt="welcome" class="welcomechara">
+    <img src="images/honsai/twobirds.svg" alt="birds" class="welcomingbirds">
+  </div>
+</body>
+
+<script>
+  var menuopen = 0;
+  var soundplay = 0;
+  var sound = new Audio();
+  function NavAction() {
+      if (!menuopen) {
+          document.getElementById("kumonav").style.top = "0vh";
+          document.getElementById("kumonav").style.backgroundColor = "#FFFCF3";
+          menuopen = 1;
+      }
+      else {
+          document.getElementById("kumonav").style.top = "-85vh";
+          document.getElementById("kumonav").style.backgroundColor = "rgba(255, 255, 255, 0)";
+          menuopen = 0;
+      }
+  }
+  function playSound() {
+    if (soundplay) {
+      sound.pause();
+      soundplay = 0;
+    } else {
+      sound = new Audio('mood_sound.mp3');
+      sound.loop = 1;
+      sound.play();
+      soundplay = 1;
+    }
+  }
+</script>
