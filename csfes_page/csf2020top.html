@@ -50,8 +50,8 @@
   <div class="tenji-page beige" id="tenji">
     <div class="tennji-top-div">
       <img src="images/honsai/tenjitop.png" alt="展示トップカーテン" class="tenjitop">
-      <a class="tenjibutton" onclick="expandExhibition()" style="cursor:pointer">
-        <img src="images/honsai/tenjibutton.png" alt="展示ボタン">
+      <a id="tenjibutton" onclick="expandExhibition()" style="cursor:pointer">
+        <img src="images/honsai/tenjibutton.png" alt="展示ボタン" class="full">
       </a>
     </div>
     <div id="tenji-gallery">
@@ -121,10 +121,32 @@
       <img src="images/honsai/stagelogo2.png" alt="ステージ" class="stagelogo2">
     </div>
       <img src="images/honsai/tvfull.svg" alt="TV" class="tv">
-      <!-- <img src="images/honsai/twobirds2.png" alt="two birds" class="twobirds2"> -->
       <a href="#" class="stgbutton"><img src="images/honsai/stagebutton.png" alt="ステージリンク" class="full"> </a>
       <img src="images/honsai/stage_bottom_chara.png" alt="キャラたち" class="stgchara">
   </div>
+  <div class="beige" id="timetable">
+  </div>
+
+  <!-- event part -->
+  <div class="beige" id="event">
+    <img src="images/honsai/tigereyeopen.svg" id="tigerE1">
+    <img src="images/honsai/tigereyeclosed.svg" id="tigerE2">
+    <div id="stage_gallery">
+      <div class="tennji-top-div">
+        <img src="images/honsai/tenjitop.png" alt="ステージトップカーテン" class="tenjitop">
+        <a id="tenjibutton" onclick="expandExhibition()" style="cursor:pointer">
+          <img src="images/honsai/tenjibutton.png" alt="展示ボタン" class="full">
+        </a>
+      </div>
+      <div id="tenji-gallery">
+
+      </div>
+      <div class="tennji-bottom-div">
+        <img src="images/honsai/tenjibottom.png" alt="展示ボタムカーテン" class="tenjibottom">
+      </div>
+    </div>
+  </div>
+
 </body>
 
 <script>
@@ -132,6 +154,7 @@
   var soundplay = 0;
   var sound = new Audio();
   function NavAction() {
+    closeExhibition();
       if (!menuopen) {
           document.getElementById("kumonav").style.top = "0vh";
           document.getElementById("kumonav").style.backgroundColor = "#FFFCF3";
@@ -157,5 +180,10 @@
   function expandExhibition() {
     document.getElementById("tenji-gallery").style.height = "100%";
     document.getElementById("tenji-gallery").style.display = "flex";
+    document.getElementById("tenjibutton").style.display = "none"
+  }
+  function closeExhibition() {
+    document.getElementById("tenji-gallery").style.display = "none";
+    document.getElementById("tenjibutton").style.display = "inline-block"
   }
 </script>
