@@ -223,7 +223,7 @@ body {
 
 .tenjibutton {
   display: relative;
-  width: 12vw;
+  width: 10vw;
   z-index: 3;
   transition: 0.2s;
 }
