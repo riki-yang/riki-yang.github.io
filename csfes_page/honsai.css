@@ -4,6 +4,68 @@
   font-style:normal;
   src: url('SourceHanSansJP-Regular.otf') format('opentype') ;
 }
+@font-face {  font-family: "myfont";
+  src:url('font/SourceHanSansJP-ExtraLight.eot');/* IE9 Compat Modes */
+  src:local('SourceHanSansJP-ExtraLight'), /* フォントがローカルにインストールされている場合に有効 */
+      url("font/SourceHanSansJP-ExtraLight.eot?#iefix") format('embedded-opentype'),/* eof - IE6-IE8 */
+      url('font/SourceHanSansJP-ExtraLight.woff') format('woff'), /* woff - Modern Browsers */
+      url('font/SourceHanSansJP-ExtraLight.ttf') format('truetype'); /* ttf - Safari, Android, iOS */
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {  font-family: "myfont";
+  src:url('font/SourceHanSansJP-Light.eot');
+  src:local('SourceHanSansJP-Light'),
+      url("font/SourceHanSansJP-Light.eot?#iefix") format('embedded-opentype'),
+      url('font/SourceHanSansJP-Light.woff') format('woff'),
+      url('font/SourceHanSansJP-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {  font-family: "myfont";
+  src:url('font/SourceHanSansJP-Normal.eot');
+  src:local('SourceHanSansJP-Normal'),
+      url("font/SourceHanSansJP-Normal.eot?#iefix") format('embedded-opentype'),
+      url('font/SourceHanSansJP-Normal.woff') format('woff'),
+      url('font/SourceHanSansJP-Normal.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {  font-family: "myfont";
+  src:url('font/SourceHanSansJP-Regular.eot');
+  src:local('SourceHanSansJP-Regular'),
+      url("font/SourceHanSansJP-Regular.eot?#iefix") format('embedded-opentype'),
+      url('font/SourceHanSansJP-Regular.woff') format('woff'),
+      url('font/SourceHanSansJP-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {  font-family: "myfont";
+  src:url('font/SourceHanSansJP-Medium.eot');
+  src:local('SourceHanSansJP-Medium'),
+      url("font/SourceHanSansJP-Medium.eot?#iefix") format('embedded-opentype'),
+      url('font/SourceHanSansJP-Medium.woff') format('woff'),
+      url('font/SourceHanSansJP-Medium.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {  font-family: "myfont";
+  src:url('font/SourceHanSansJP-Bold.eot');
+  src:local('SourceHanSansJP-Bold'),
+      url("font/SourceHanSansJP-Bold.eot?#iefix") format('embedded-opentype'),
+      url('font/SourceHanSansJP-Bold.woff') format('woff'),
+      url('font/SourceHanSansJP-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {  font-family: "myfont";
+  src:url('font/SourceHanSansJP-Heavy.eot');
+  src:local('SourceHanSansJP-Heavy'),
+      url("font/SourceHanSansJP-Heavy.eot?#iefix") format('embedded-opentype'),
+      url('font/SourceHanSansJP-Heavy.woff') format('woff'),
+      url('font/SourceHanSansJP-Heavy.ttf') format('truetype');
+  font-weight: 800;
+}
 
 /* CSS Document */
 body, h1, h2, h3, h4,h5,p, ul, li,span,div{
