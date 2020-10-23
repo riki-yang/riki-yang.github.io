@@ -126,10 +126,31 @@
       <img src="images/honsai/stage/Group 3656.svg" alt="キャラたち" class="stgchara">
   </div>
   <div class="beige" id="timetable">
+    <div class="timetableTop">
+      <div><img src="images/honsai/stage/STAGE TIME TABLE@2x.png" alt="Stage Time Table" class="text1"></div>
+    </div>
+    <div class="red">
+      <a onclick="expandTimetable()" class="btn">
+        <img src="images/honsai/stage/timetablebutton.png" alt="タイムテーブルを見る" id="timetablebtn">
+      </a>
+    </div>
+    <div id="timetableGallery">
+      <img src="images/honsai/stage/Group 3000@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3001@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3002@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3003@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3004@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3005@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3006@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3007@2x.png" class="column3">
+      <img src="images/honsai/stage/Group 3008@2x.png" class="column3">
+    </div>
+    <div class="timetableBottom">
+    </div>
   </div>
 
   <!-- event part -->
-  <div class="beige" id="event">
+  <div id="event">
       <div class="event-top-div">
         <div>
           <img src="images/honsai/event/eventlogo2.svg" alt="いべんと" class="eventlogo2">
@@ -206,7 +227,8 @@
   function NavAction() {
     closeExhibition();
     closeEvent();
-    closeMarket()
+    closeMarket();
+    closeTimetable();
       if (!menuopen) {
           document.getElementById("kumonav").style.top = "0vh";
           document.getElementById("kumonav").style.backgroundColor = "#FFFCF3";
@@ -253,5 +275,13 @@
   function closeMarket() {
     document.getElementById("market-gallery").style.display = "none";
     document.getElementById("marketbutton").style.opacity = "1";
+  }
+  function expandTimetable() {
+    document.getElementById("timetableGallery").style.display = "block";
+    document.getElementById("timetablebtn").style.width = "0";
+  }
+  function closeTimetable() {
+    document.getElementById("timetableGallery").style.display = "none";
+    document.getElementById("timetablebtn").style.width = "20%";
   }
 </script>
