@@ -18,12 +18,12 @@
         </a>  
     </div>
     <div class="nav">
-      <a href="#"><img src="images/honsai/tenjilogo.png" class="navlogo"></a>
-      <a href="#"><img src="images/honsai/stagelogo.png" class="navlogo"></a>
-      <a href="#"><img src="images/honsai/eventlogo.png" class="navlogo"></a>
-      <a href="#"><img src="images/honsai/marketlogo.png" class="navlogo"></a>
-      <a href="#"><img src="images/honsai/SNS.png" class="navlogo"></a>
-      <a href="#"><img src="images/honsai/Q&A.png" class="navlogo"></a>
+      <a onclick="NavAction()" href="#tenji"><img src="images/honsai/tenjilogo.png" class="navlogo"></a>
+      <a onclick="NavAction()" href="#stage"><img src="images/honsai/stagelogo.png" class="navlogo"></a>
+      <a onclick="NavAction()" href="#"><img src="images/honsai/eventlogo.png" class="navlogo"></a>
+      <a onclick="NavAction()" href="#"><img src="images/honsai/marketlogo.png" class="navlogo"></a>
+      <a onclick="NavAction()" href="#"><img src="images/honsai/SNS.png" class="navlogo"></a>
+      <a onclick="NavAction()" href="#"><img src="images/honsai/Q&A.png" class="navlogo"></a>
     </div>
   </div>
   <!-- welcome parts -->
@@ -44,6 +44,86 @@
     <img src="images/honsai/welcomemessage.svg" alt="MOODメッセージ" class="welcomemessage">
     <img src="images/honsai/welcome.svg" alt="welcome" class="welcomechara">
     <img src="images/honsai/twobirds.svg" alt="birds" class="welcomingbirds">
+  </div>
+
+<!-- exhibition parts -->
+  <div class="tenji-page beige" id="tenji">
+    <div class="tennji-top-div">
+      <img src="images/honsai/tenjitop.png" alt="展示トップカーテン" class="tenjitop">
+      <a class="tenjibutton" onclick="expandExhibition()" style="cursor:pointer">
+        <img src="images/honsai/tenjibutton.png" alt="展示ボタン">
+      </a>
+    </div>
+    <div id="tenji-gallery">
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3012@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3013@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3014@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3015@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3017@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3018@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3019@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3020@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3021@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3022@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3023@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3024@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3025@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3026@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3027@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3028@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3029@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3030@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3031@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3032@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3033@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3034@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3035@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3036@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3037@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3038@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3039@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3040@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3041@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3042@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3043@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3044@2x.png"></div>
+      <!-- </div> -->
+      <!-- <div class="row"> -->
+        <div class="column left1"><img src="images/honsai/exhibitions/Group 3045@2x.png"></div>
+        <div class="column left2"><img src="images/honsai/exhibitions/Group 3046@2x.png"></div>
+        <div class="column right1"><img src="images/honsai/exhibitions/Group 3047@2x.png"></div>
+        <div class="column right2"><img src="images/honsai/exhibitions/Group 3048@2x.png"></div>
+      <!-- </div> -->
+    </div>
+    <div class="tennji-bottom-div">
+      <img src="images/honsai/tenjibottom.png" alt="展示ボタムカーテン" class="tenjibottom">
+    </div>
+  </div>
+
+  <!-- stage part -->
+  <div class="beige" id="stage">
+    <div class="header30">
+      <img src="images/honsai/stagelogo2.png" alt="ステージ" class="stagelogo2">
+    </div>
+      <img src="images/honsai/tvfull.svg" alt="TV" class="tv">
+      <!-- <img src="images/honsai/twobirds2.png" alt="two birds" class="twobirds2"> -->
+      <a href="#" class="stgbutton"><img src="images/honsai/stagebutton.png" alt="ステージリンク" class="full"> </a>
+      <img src="images/honsai/stage_bottom_chara.png" alt="キャラたち" class="stgchara">
   </div>
 </body>
 
@@ -73,5 +153,9 @@
       sound.play();
       soundplay = 1;
     }
+  }
+  function expandExhibition() {
+    document.getElementById("tenji-gallery").style.height = "100%";
+    document.getElementById("tenji-gallery").style.display = "flex";
   }
 </script>
