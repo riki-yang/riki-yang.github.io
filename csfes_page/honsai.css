@@ -264,12 +264,12 @@ body {
   transition: 1s;
 }
 
-/* .row {
+.row {
   margin: auto;
   display: flex;
   width: 90%;
   margin-bottom: 10px;
-} */
+}
 
 .column {
   max-width: 22.5vw;
