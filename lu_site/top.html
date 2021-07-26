@@ -13,21 +13,16 @@
   <header class="top">
     <img src="img/lu.svg" alt="Lu Xiaoyan" id="lulogo">
   </header>
-  <div class="full">
-
-    <div class="right">
+  <div class="right">
       <div class="menu">
         <div class="menuleft">
           <img src="img/menu.svg" alt="menu" id="menuicon">
         </div>
         <div class="menuright">
-          <img src="img/HOME.svg" class="menuitem">
+          <a href="top.html"><img src="img/HOME.svg" class="menuitem"></a>
           <img src="img/WORKS.svg" class="menuitem">
-          <img src="img/ABOUT.svg" class="menuitem">
-          <!-- <li href="#">HOME</li>
-          <li href="#">WORKS</li>
-          <li href="#">ABOUT</li> -->
-          </div>
+          <a href="about.html"><img src="img/ABOUT.svg" class="menuitem"></a>
+        </div>
       </div>
       <img src="img/top/anata.jpg" alt="あなたがいることで" class="topimg" id="img1">
       <img src="img/top/hoshiaru.jpg" class="topimg" alt="星ある輝く夜空" id="img2">
@@ -36,7 +31,6 @@
       <img src="img/top/1.jpg" class="topimg" alt="" id="img5">
       <img src="img/top/2.jpg" class="topimg" alt="" id="img6">
       <img src="img/top/3.jpg" class="topimg" alt="" id="img7">
-    </div>
   </div>
   <script src="jquery-3.6.0.js"></script>
   <script type="text/javascript" src="http://andywer.github.io/jquery-dim-background/jquery.dim-background.min.js"></script>
@@ -47,6 +41,7 @@
   $(document).ready(function() {
     $(".topimg").mouseenter(function(){
       $(this).dimBackground();
+      // also need to show text
     })
     .mouseleave(function() {
       $("*").undim();
@@ -60,7 +55,6 @@
     $(".menu").mouseleave(function(){
       $(".menuright").hide()
     }); 
-    $(".top").css("background-color", "black");
     resizetopimg();
     $(window).resize(function() {
       resizetopimg();

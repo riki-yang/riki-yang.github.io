@@ -72,6 +72,15 @@ body {
 	/* background-color: red; */
 }
 
+.menuitem {
+	transition: transform .1s;
+}
+
+.menuitem:hover {
+	filter: brightness(0.4);
+}
+
+
 .menuright img {
 	display: block;
 	margin-left: 20px;
@@ -92,7 +101,6 @@ body {
 	position: relative;
 	transition: transform .1s; 
 	border-radius: 6%;	
-	filter: brightness(0.4);
 	max-height: 100%;
 	max-width: 100%;
 }
@@ -102,8 +110,8 @@ body {
 }
 
 #img1 {
-	grid-column: 18 / 37;
-	grid-row: 18 / 32;
+	grid-column: 19 / 38;
+	grid-row: 14 / 30;
 	z-index: 1;
 }
 
@@ -126,13 +134,13 @@ body {
 }
 
 #img6 {
-	grid-column: 25 / 36;
-	grid-row: 5 / 12;
+	grid-column: 28 / 38;
+	grid-row: 1 / 8;
 	z-index: 5;
 }
 
 #img5 {
-	grid-column: 36 / 50;
+	grid-column: 34 / 49;
 	grid-row: 34 / 42;
 	z-index: 6;
 }
