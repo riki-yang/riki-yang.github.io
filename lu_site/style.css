@@ -1,0 +1,145 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('Segoe UI.woff') format('woff');
+}
+
+/* CSS Document */
+html, div {
+	padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+	background-color: #E2E2E2;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.top {
+	height: 6vh;
+	width: 100vw;
+}
+
+#lulogo {
+	size: auto;
+	margin-left: 1.2vw;
+	margin-top: 1vh;
+}
+
+.full {
+	height: 95vh;
+	width: 100vw;
+}
+
+.menu {
+	height: 95vh;
+	/* line-height: 95vh; */
+	padding-left: 0;
+	position: fixed;
+	z-index: 99;
+	/* width: 20vw; */
+	grid-row: 1, last-line;
+	display: flex;
+	/* background-color: black; */
+}
+
+.menuleft {
+	height: 95vh;
+	line-height: 95vh;
+	margin-left: -0.5vw;
+	width: 4vw;
+}
+
+#menuicon {
+	width: 4vw;
+	max-height: 10vh;
+	display: inline-block;
+	vertical-align: middle;
+	/* margin-bottom: 2vh; */
+	z-index: 99;
+}
+
+.menuright {
+	display: none;
+	margin-left: 0vw;
+	width: 15vw;
+	max-width: 15vh;
+	margin-top: 41vh;
+	/* background-color: red; */
+}
+
+.menuright img {
+	display: block;
+	margin-left: 20px;
+	max-width: 15vh;
+}
+
+.right {
+	position: absolute;
+	display: grid;
+	grid-template-columns: repeat(50, 1fr);
+	grid-template-rows: repeat(47, 2vh);
+	position: relative;
+	align-items: center;
+}
+
+
+.topimg {
+	position: relative;
+	transition: transform .1s; 
+	border-radius: 6%;	
+	filter: brightness(0.4);
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.topimg:hover {
+	transform: scale(1.2);
+}
+
+#img1 {
+	grid-column: 18 / 37;
+	grid-row: 18 / 32;
+	z-index: 1;
+}
+
+#img2 {
+	grid-column: 6 / 15;
+	grid-row: 32 / 42;
+	z-index: 3;
+}
+
+#img3 {
+	grid-column: 22 / 32;
+	grid-row: 38 / 47;
+	z-index: 2;
+}
+
+#img4 {
+	grid-column: 42 / 49;
+	grid-row: 12 / 25;
+	z-index: 4;
+}
+
+#img6 {
+	grid-column: 25 / 36;
+	grid-row: 5 / 12;
+	z-index: 5;
+}
+
+#img5 {
+	grid-column: 36 / 50;
+	grid-row: 34 / 42;
+	z-index: 6;
+}
+
+#img7 {
+	grid-column: 10 / 17;
+	grid-row: 12 / 20;
+	z-index: 7;
+}
+

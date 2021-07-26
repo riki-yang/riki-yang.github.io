@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lu Xiaoyan</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header class="top">
+    <img src="img/lu.svg" alt="Lu Xiaoyan" id="lulogo">
+  </header>
+  <div class="full">
+
+    <div class="right">
+      <div class="menu">
+        <div class="menuleft">
+          <img src="img/menu.svg" alt="menu" id="menuicon">
+        </div>
+        <div class="menuright">
+          <img src="img/HOME.svg" class="menuitem">
+          <img src="img/WORKS.svg" class="menuitem">
+          <img src="img/ABOUT.svg" class="menuitem">
+          <!-- <li href="#">HOME</li>
+          <li href="#">WORKS</li>
+          <li href="#">ABOUT</li> -->
+          </div>
+      </div>
+      <img src="img/top/anata.jpg" alt="あなたがいることで" class="topimg" id="img1">
+      <img src="img/top/hoshiaru.jpg" class="topimg" alt="星ある輝く夜空" id="img2">
+      <img src="img/top/nitijyou.jpg" class="topimg" alt="日常会話" id="img3">
+      <img src="img/top/owaranai.jpg" class="topimg" alt="終わらない虫の声" id="img4">
+      <img src="img/top/1.jpg" class="topimg" alt="" id="img5">
+      <img src="img/top/2.jpg" class="topimg" alt="" id="img6">
+      <img src="img/top/3.jpg" class="topimg" alt="" id="img7">
+    </div>
+  </div>
+  <script src="jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="http://andywer.github.io/jquery-dim-background/jquery.dim-background.min.js"></script>
+</body>
+</html>
+
+<script>
+  $(document).ready(function() {
+    $(".topimg").mouseenter(function(){
+      $(this).dimBackground();
+    })
+    .mouseleave(function() {
+      $("*").undim();
+    });
+    $("#menuicon").mouseenter(function(){
+      $(".menuright").show()
+    }); 
+    $(".menuright").mouseleave(function(){
+      $(".menuright").hide()
+    }); 
+    $(".menu").mouseleave(function(){
+      $(".menuright").hide()
+    }); 
+    $(".top").css("background-color", "black");
+    resizetopimg();
+    $(window).resize(function() {
+      resizetopimg();
+    });
+  });
+  function resizetopimg() {
+    var h_wratio = $(window).height()/$(window).width();
+    if (h_wratio < 0.6363636) {
+      $(".topimg").css("max-height", "120%");
+      $(".topimg").css("max-width", "120%");
+    } else {
+      $(".topimg").css("max-height", "100%");
+      $(".topimg").css("max-width", "100%");      
+    }
+  }
+</script>
