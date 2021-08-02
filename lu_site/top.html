@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Lu Xiaoyan</title>
   <link rel="stylesheet" href="style.css">
-
+  <link rel="shortcut icon" type="image/png" href="img/L.png"/>
 </head>
 
 <body>
@@ -28,9 +28,10 @@
       <img src="img/top/hoshiaru.jpg" class="topimg" alt="星ある輝く夜空" id="img2">
       <img src="img/top/nitijyou.jpg" class="topimg" alt="日常会話" id="img3">
       <img src="img/top/owaranai.jpg" class="topimg" alt="終わらない虫の声" id="img4">
-      <img src="img/top/1.jpg" class="topimg" alt="" id="img5">
-      <img src="img/top/2.jpg" class="topimg" alt="" id="img6">
-      <img src="img/top/3.jpg" class="topimg" alt="" id="img7">
+      <img src="img/top/1.jpg" class="topimg" alt="1" id="img5">
+      <img src="img/top/2.jpg" class="topimg" alt="2" id="img6">
+      <img src="img/top/3.jpg" class="topimg" alt="3" id="img7">
+      <div id="hiddentext"></div>
   </div>
   <script src="jquery-3.6.0.js"></script>
   <script type="text/javascript" src="http://andywer.github.io/jquery-dim-background/jquery.dim-background.min.js"></script>
@@ -41,10 +42,13 @@
   $(document).ready(function() {
     $(".topimg").mouseenter(function(){
       $(this).dimBackground();
-      // also need to show text
+      $("<p>" + $(this).attr("alt") + "</p>").appendTo("#hiddentext");
+      $("#hiddentext").show();
     })
     .mouseleave(function() {
       $("*").undim();
+      $("#hiddentext").empty();
+      $("#hiddentext").hide();
     });
     $("#menuicon").mouseenter(function(){
       $(".menuright").show()
@@ -63,9 +67,11 @@
   function resizetopimg() {
     var h_wratio = $(window).height()/$(window).width();
     if (h_wratio < 0.6363636) {
+      $("#menuicon").css("width", "4vw");
       $(".topimg").css("max-height", "120%");
       $(".topimg").css("max-width", "120%");
     } else {
+      $("#menuicon").css("width", "6vw");
       $(".topimg").css("max-height", "100%");
       $(".topimg").css("max-width", "100%");      
     }

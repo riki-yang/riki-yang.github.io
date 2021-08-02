@@ -151,3 +151,16 @@ body {
 	z-index: 7;
 }
 
+#hiddentext {
+	position: absolute;
+	z-index: 2147483647;
+	top: 98%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	display: none;
+}
+
+#hiddentext *{
+	font-size: large;
+}
