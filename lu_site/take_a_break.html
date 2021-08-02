@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="jp" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Lu Xiaoyan" />
+    <meta name="keywords" content="photography, lu xiaoyan" />
+    <title>Lu Xiaoyan</title>
+    <link rel="shortcut icon" type="image/png" href="img/L.png"/>
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
+  </head>
+
+  <body>
+    <div class="menu">
+      <div class="menuleft">
+        <img src="img/menu.svg" alt="menu" id="menuicon">
+      </div>
+      <div class="menuright">
+        <a href="top.html"><img src="img/HOME.svg" class="menuitem"></a>
+        <img src="img/WORKS.svg" class="menuitem">
+        <a href="about.html"><img src="img/ABOUT.svg" class="menuitem"></a>
+      </div>
+    </div>
+    <div id="statementbkgd">
+    </div>
+    <div class="stateleft">
+      <p>私は自分が誰か知っています<br>
+        だからあなたが誰かも知っています<br>
+        たとえ名前は知らなくても<br>
+        たとえどこにも戸籍がなくても<br>
+        私はあなたへとはみ出していきます<br>
+        雨に濡れるのを喜び<br>
+        星空を懐かしみ<br>
+        下手な冗談に笑いころげ<br>
+        「私は私」というトートロジーを超えて<br>
+        私は私です<br>
+        ————谷川俊太郎「私は私<br>
+      </p><br>
+      <p>「私は誰なのか」、「生きる意味をどうやって説明すべきなのか」人生に対して、多くの疑問を持っている。この作品は共鳴する女性たちを撮った写真である。自分の視点からこれらの人を見て、自分の影が見えるようになった。</p><br>
+      <p>写真を撮ることは攻撃的な行為という言論があるが、自分にとって写真を撮ることは、目の前にいるその人に触ったり、撫でたりする行為であり、自らの敬意と愛を表現するものである。カメラはそのとき、私の目と手になる。</p>
+    </div>
+    <div class="stateright">
+      <img src="img/take_a_break.svg" alt="by my side" id="titleicon">
+    </div>
+		<div class="container">
+			<div id="grid-gallery" class="grid-gallery">
+				<section class="grid-wrap">
+          <ul class="grid appender">
+            <li class="grid-sizer"></li><!-- for Masonry column width -->
+          </ul>
+        </section><!-- // grid-wrap -->
+				<section class="slideshow">
+					<ul class="appender">
+					</ul>
+					<nav>
+						<span class="icon nav-prev"></span>
+						<span class="icon nav-next"></span>
+						<span class="icon nav-close"></span>
+					</nav>
+					<div class="info-keys icon">Navigate with arrow keys</div>
+				</section><!-- // slideshow -->
+      </div><!-- // gridgallery -->
+    </div>
+
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpGridGallery.js"></script>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function(){
+        var i = 0;
+        var li_text = "";
+        while (i < 62) {
+          i++;
+          li_text = "<li><figure><img src=\"img/take_a_break/(" + i + ").jpg\"/></figure></li>";
+          $(".appender").append(li_text);
+        }
+        new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+        $("#menuicon").mouseenter(function(){
+          $(".menuright").show()
+        }); 
+        $(".menuright").mouseleave(function(){
+          $(".menuright").hide()
+        }); 
+        $(".menu").mouseleave(function(){
+          $(".menuright").hide()
+        }); 
+        $("#titleicon").mouseenter(function(){
+          $("#statementbkgd").show();
+          $(".stateleft").show();
+        }); 
+        $("#titleicon").mouseleave(function(){
+          $(".stateleft").hide();
+          $("#statementbkgd").hide();
+        }); 
+
+      });
+    </script>
+  </body>
+</html>
+
+

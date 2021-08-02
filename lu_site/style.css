@@ -45,6 +45,8 @@ body {
 	grid-row: 1, last-line;
 	display: flex;
 	/* background-color: black; */
+	cursor: pointer;
+
 }
 
 .menuleft {

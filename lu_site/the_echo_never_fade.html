@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="jp" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Lu Xiaoyan" />
+    <meta name="keywords" content="photography, lu xiaoyan" />
+    <title>Lu Xiaoyan</title>
+    <link rel="shortcut icon" type="image/png" href="img/L.png"/>
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src="js/modernizr.custom.js"></script>
+  </head>
+
+  <body>
+    <div class="menu">
+      <div class="menuleft">
+        <img src="img/menu.svg" alt="menu" id="menuicon">
+      </div>
+      <div class="menuright">
+        <a href="top.html"><img src="img/HOME.svg" class="menuitem"></a>
+        <img src="img/WORKS.svg" class="menuitem">
+        <a href="about.html"><img src="img/ABOUT.svg" class="menuitem"></a>
+      </div>
+    </div>
+    <div id="statementbkgd">
+    </div>
+    <div class="stateleft">
+      <p>子供の頃は少数民族の小さな山村で過ごした。都市化の進行で、12歳に家族と共に故郷を离れ、いわゆる「都会人」になった。だが、心の中には常に純粋な自然への憧れがある。最初東京に来た時、子供の頃大都市へ行った時と類すると感じた。しばらく住んでいたと、どこの都市でも似るような気がした。純粋な自然に対する憧憬がより強くなってきた。そこで、東京以外の地域を見に行った。また戻ってくる時、東京に対する新たな認識と発見があった。都市の焦燥感とスピード感がさらにひどくなると想った。同時に、都市景観に対して違和感が生じる。心の拠り所はどこにあるのか。都市であれ、故郷であれ、自分に属していないと感じる。</p><br>
+    </div>
+    <div class="stateright">
+      <img src="img/the_echo_never_fade.svg" alt="by my side" id="titleicon">
+    </div>
+		<div class="container">
+			<div id="grid-gallery" class="grid-gallery">
+				<section class="grid-wrap">
+          <ul class="grid appender">
+            <li class="grid-sizer"></li><!-- for Masonry column width -->
+          </ul>
+        </section><!-- // grid-wrap -->
+				<section class="slideshow">
+					<ul class="appender">
+					</ul>
+					<nav>
+						<span class="icon nav-prev"></span>
+						<span class="icon nav-next"></span>
+						<span class="icon nav-close"></span>
+					</nav>
+					<div class="info-keys icon">Navigate with arrow keys</div>
+				</section><!-- // slideshow -->
+      </div><!-- // gridgallery -->
+    </div>
+
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpGridGallery.js"></script>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      $(document).ready(function(){
+        var i = 0;
+        var li_text = "";
+        while (i < 85) {
+          i++;
+          li_text = "<li><figure><img src=\"img/the_echo_never_fade/(" + i + ").jpg\"/></figure></li>";
+          $(".appender").append(li_text);
+        }
+        new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+        $("#menuicon").mouseenter(function(){
+          $(".menuright").show()
+        }); 
+        $(".menuright").mouseleave(function(){
+          $(".menuright").hide()
+        }); 
+        $(".menu").mouseleave(function(){
+          $(".menuright").hide()
+        }); 
+        $("#titleicon").mouseenter(function(){
+          $("#statementbkgd").show();
+          $(".stateleft").show();
+        }); 
+        $("#titleicon").mouseleave(function(){
+          $(".stateleft").hide();
+          $("#statementbkgd").hide();
+        }); 
+      });
+    </script>
+  </body>
+</html>
+
+

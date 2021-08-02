@@ -9,7 +9,19 @@
 	font-style: normal;
 } /* Made with http://icomoon.io/app */
 
+@font-face {
+    font-family: 'Segoe UI Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Segoe UI Regular'), url('Segoe UI.woff') format('woff');
+}
+
 /* General style */
+body {
+	padding: 0;
+	margin: 0;
+}
+
 .grid-gallery ul {
 	list-style: none;
 	margin: 0;
@@ -37,6 +49,112 @@
 .grid-gallery figcaption p {
 	margin: 0;
 }
+
+/* Menu style */
+.menu {
+	height: 100vh;
+	padding-left: 0;
+	position: fixed;
+	z-index: 99;
+	width: 20vw;
+	display: flex;
+	cursor: pointer;
+}
+
+.menuleft {
+	height: 95vh;
+	line-height: 95vh;
+	margin-left: -0.5vw;
+	width: 4vw;
+}
+
+#menuicon {
+	width: 4vw;
+	max-height: 10vh;
+	display: inline-block;
+	vertical-align: middle;
+	/* margin-bottom: 2vh; */
+	z-index: 99;
+}
+
+.menuright {
+	display: none;
+	margin-left: 0vw;
+	width: 15vw;
+	max-width: 15vh;
+	margin-top: 41vh;
+	/* background-color: red; */
+}
+
+.menuitem {
+	transition: transform .1s;
+}
+
+.menuitem:hover {
+	filter: brightness(0.4);
+}
+
+
+.menuright img {
+	display: block;
+	margin-left: 20px;
+	max-width: 15vh;
+}
+
+.right {
+	position: absolute;
+	display: grid;
+	grid-template-columns: repeat(50, 1fr);
+	grid-template-rows: repeat(47, 2vh);
+	position: relative;
+	align-items: center;
+}
+
+/* Statement style */
+#statementbkgd {
+	z-index: 999;
+	height: 100vh;
+	/* padding-left: 6vw; */
+	position: fixed;
+	width: 100vw;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	overflow: hidden;
+	transition: 0.5s;
+}
+
+.stateleft {
+	display: none;
+	width: 84vw;
+	padding-left: 6vw;
+	position: fixed;
+	z-index: 999;
+}
+
+.stateleft p {
+	color: white;
+	font-family: 'Segoe UI Regular';
+	font-size: large;
+}
+
+.stateright {
+	position: fixed;
+	height: 100vh;
+	line-height: 95vh;
+	right: 0;
+	width: 4vw;
+	z-index: 100;
+}
+
+#titleicon {
+	right: 0;
+	padding-right: 2px;
+	max-width: 10vw;
+	display: inline-block;
+	vertical-align: middle;
+	z-index: 99;
+}
+
 
 /* Grid style */
 .grid-wrap {
@@ -220,16 +338,18 @@ span.nav-close:before {
 	}
 
 	.slideshow li {
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
+		width: 200%;
+		height: 200%;
+		top: 50;
+		left: 50;
+		transform: scale(200%);
+		transform: translate(-50%, -50%);
 		margin: 0;
 	}
 
 	.slideshow li figure img {
 		width: auto;
-		margin: 0 auto;
+		margin:  auto;
 		max-width: 100%;
 	}
 
@@ -243,16 +363,27 @@ span.nav-close:before {
 		display: none;
 	}
 
+	#menuicon, #titleicon {
+		width: 5vw;
+	}
+
 }
 
 @media screen and (max-width: 35em) {
 	.grid li {
 		width: 50%;
 	}
+	#menuicon {
+		width: 6vw;
+	}
+
 }
 
 @media screen and (max-width: 24em) {
 	.grid li {
 		width: 100%;
+	}
+	#menuicon {
+		width: 8vw;
 	}
 }
