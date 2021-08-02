@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Lu Xiaoyan" />
+  <meta name="keywords" content="photography, lu xiaoyan" />
   <title>Lu Xiaoyan</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" type="image/png" href="img/L.png"/>
@@ -24,7 +26,7 @@
           <a href="about.html"><img src="img/ABOUT.svg" class="menuitem"></a>
         </div>
       </div>
-      <img src="img/top/anata.jpg" alt="あなたがいることで" class="topimg" id="img1">
+      <img src="img/top/anata.jpg" alt="あなたがいることで" data-link = "work1.html" class="topimg" id="img1">
       <img src="img/top/hoshiaru.jpg" class="topimg" alt="星ある輝く夜空" id="img2">
       <img src="img/top/nitijyou.jpg" class="topimg" alt="日常会話" id="img3">
       <img src="img/top/owaranai.jpg" class="topimg" alt="終わらない虫の声" id="img4">
@@ -50,6 +52,9 @@
       $("#hiddentext").empty();
       $("#hiddentext").hide();
     });
+    $(".topimg").click(function(){
+      window.location.href = $(this).data("link");
+    })
     $("#menuicon").mouseenter(function(){
       $(".menuright").show()
     }); 
