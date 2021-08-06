@@ -21,8 +21,8 @@
           <img src="img/menu.svg" alt="menu" id="menuicon">
         </div>
         <div class="menuright">
-          <a href="top.html"><img src="img/HOME.svg" class="menuitem"></a>
-          <img src="img/WORKS.svg" class="menuitem">
+          <a href="index.html"><img src="img/HOME.svg" class="menuitem"></a>
+          <a href="index.html"><img src="img/WORKS.svg" class="menuitem"></a>
           <a href="about.html"><img src="img/ABOUT.svg" class="menuitem"></a>
         </div>
       </div>
@@ -45,24 +45,24 @@
     $(".topimg").mouseenter(function(){
       $(this).dimBackground();
       $("<p>" + $(this).attr("alt") + "</p>").appendTo("#hiddentext");
-      $("#hiddentext").show();
+      $("#hiddentext").fadeIn();
     })
     .mouseleave(function() {
       $("*").undim();
       $("#hiddentext").empty();
-      $("#hiddentext").hide();
+      $("#hiddentext").fadeOut();
     });
     $(".topimg").click(function(){
       window.location.href = $(this).data("link");
     })
     $("#menuicon").mouseenter(function(){
-      $(".menuright").show()
+      $(".menuright").fadeIn()
     }); 
     $(".menuright").mouseleave(function(){
-      $(".menuright").hide()
+      $(".menuright").fadeOut()
     }); 
     $(".menu").mouseleave(function(){
-      $(".menuright").hide()
+      $(".menuright").fadeOut()
     }); 
     resizetopimg();
     $(window).resize(function() {

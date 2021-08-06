@@ -19,7 +19,7 @@
         <img src="img/menu.svg" alt="menu" id="menuicon">
       </div>
       <div class="menuright">
-        <a href="top.html"><img src="img/HOME.svg" class="menuitem"></a>
+        <a href="index.html"><img src="img/HOME.svg" class="menuitem"></a>
         <img src="img/WORKS.svg" class="menuitem">
         <a href="about.html"><img src="img/ABOUT.svg" class="menuitem"></a>
       </div>
@@ -37,7 +37,7 @@
         下手な冗談に笑いころげ<br>
         「私は私」というトートロジーを超えて<br>
         私は私です<br>
-        ————谷川俊太郎「私は私<br>
+        ————谷川俊太郎「私は私」<br>
       </p><br>
       <p>「私は誰なのか」、「生きる意味をどうやって説明すべきなのか」人生に対して、多くの疑問を持っている。この作品は共鳴する女性たちを撮った写真である。自分の視点からこれらの人を見て、自分の影が見えるようになった。</p><br>
       <p>写真を撮ることは攻撃的な行為という言論があるが、自分にとって写真を撮ることは、目の前にいるその人に触ったり、撫でたりする行為であり、自らの敬意と愛を表現するものである。カメラはそのとき、私の目と手になる。</p>
@@ -70,6 +70,7 @@
     <script src="js/classie.js"></script>
     <script src="js/cbpGridGallery.js"></script>
     <script src="jquery-3.6.0.js"></script>
+    <script src="js/menuanim.js"></script>
     <script>
       $(document).ready(function(){
         var i = 0;
@@ -80,23 +81,6 @@
           $(".appender").append(li_text);
         }
         new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
-        $("#menuicon").mouseenter(function(){
-          $(".menuright").show()
-        }); 
-        $(".menuright").mouseleave(function(){
-          $(".menuright").hide()
-        }); 
-        $(".menu").mouseleave(function(){
-          $(".menuright").hide()
-        }); 
-        $("#titleicon").mouseenter(function(){
-          $("#statementbkgd").show();
-          $(".stateleft").show();
-        }); 
-        $("#titleicon").mouseleave(function(){
-          $(".stateleft").hide();
-          $("#statementbkgd").hide();
-        }); 
       });
     </script>
   </body>

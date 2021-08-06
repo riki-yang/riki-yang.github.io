@@ -19,7 +19,7 @@
         <img src="img/menu.svg" alt="menu" id="menuicon">
       </div>
       <div class="menuright">
-        <a href="top.html"><img src="img/HOME.svg" class="menuitem"></a>
+        <a href="index.html"><img src="img/HOME.svg" class="menuitem"></a>
         <img src="img/WORKS.svg" class="menuitem">
         <a href="about.html"><img src="img/ABOUT.svg" class="menuitem"></a>
       </div>
@@ -30,7 +30,7 @@
       <p>子供の頃から、宇宙への夢があり、星を観測するために望遠鏡を作ったこともあった。宇宙に対する認知欲は、地球人のDNAが持つ本来の本能であろう。宇宙は創世から発展し、繁栄し、最後に終わりへ。では、終わったら未来の世界はどうなっているのか。もしビッグバン説が言うように、すべてのものはビッグバンの進化結果だとしたら、人類も宇宙の大爆発のわずかな「後遺症」とも言えるのではないか。これらのイメージは、子供の頃からの宇宙夢が今に残っている「後遺症」であり、宇宙への想像についての個人的な夢である。</p><br>
     </div>
     <div class="stateright">
-      <img src="img/by_my_side_90.svg" alt="by my side" id="titleicon">
+      <img src="img/radiation_90.svg" alt="by my side" id="titleicon">
     </div>
     <div class="container">
       <div id="grid-gallery" class="grid-gallery">
@@ -51,13 +51,13 @@
         </section><!-- // slideshow -->
       </div><!-- // gridgallery -->
     </div>
-
-
+    
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/cbpGridGallery.js"></script>
     <script src="jquery-3.6.0.js"></script>
+    <script src="js/menuanim.js"></script>
     <script>
       $(document).ready(function(){
         var i = 0;
@@ -68,23 +68,6 @@
           $(".appender").append(li_text);
         }
         new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
-        $("#menuicon").mouseenter(function(){
-          $(".menuright").show()
-        }); 
-        $(".menuright").mouseleave(function(){
-          $(".menuright").hide()
-        }); 
-        $(".menu").mouseleave(function(){
-          $(".menuright").hide()
-        }); 
-        $("#titleicon").mouseenter(function(){
-          $("#statementbkgd").show();
-          $(".stateleft").show();
-        }); 
-        $("#titleicon").mouseleave(function(){
-          $(".stateleft").hide();
-          $("#statementbkgd").hide();
-        }); 
       });
     </script>
   </body>

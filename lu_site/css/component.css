@@ -22,6 +22,13 @@ body {
 	margin: 0;
 }
 
+.fadeIn {
+	-webkit-animation: animat_show 0.8s;
+	animation: animat_show 0.8s;
+	visibility: visible !important;
+}
+
+
 .grid-gallery ul {
 	list-style: none;
 	margin: 0;
@@ -73,8 +80,12 @@ body {
 	max-height: 10vh;
 	display: inline-block;
 	vertical-align: middle;
-	/* margin-bottom: 2vh; */
 	z-index: 99;
+	transition: transform .1s;
+}
+
+#menuicon:hover {
+	transform: scale(1.1);
 }
 
 .menuright {
@@ -92,6 +103,7 @@ body {
 
 .menuitem:hover {
 	filter: brightness(0.4);
+	transform: scale(1.1);
 }
 
 
@@ -112,15 +124,13 @@ body {
 
 /* Statement style */
 #statementbkgd {
-	z-index: 999;
+	z-index: 1;
 	height: 100vh;
-	/* padding-left: 6vw; */
 	position: fixed;
 	width: 100vw;
 	display: none;
 	background-color: rgba(0, 0, 0, 0.6);
 	overflow: hidden;
-	transition: 0.5s;
 }
 
 .stateleft {
@@ -128,10 +138,12 @@ body {
 	width: 84vw;
 	padding-left: 6vw;
 	position: fixed;
-	z-index: 999;
+	z-index: 1;
+	text-align: center;
 }
 
 .stateleft p {
+	padding-top: auto;
 	color: white;
 	font-family: 'Segoe UI Regular';
 	font-size: large;
@@ -142,8 +154,8 @@ body {
 	height: 100vh;
 	line-height: 95vh;
 	right: 0;
-	width: 4vw;
-	z-index: 100;
+	width: 5vw;
+	z-index: 2;
 }
 
 #titleicon {
@@ -152,7 +164,7 @@ body {
 	max-width: 10vw;
 	display: inline-block;
 	vertical-align: middle;
-	z-index: 99;
+	transition: 0.5s;
 }
 
 
@@ -186,7 +198,7 @@ body {
 /* Slideshow style */
 .slideshow {
 	position: fixed;
-	background: rgba(0,0,0,0.6);
+	background: rgba(0,0,0,0.8);
 	width: 100%;
 	height: 100%;
 	top: 0;
@@ -251,7 +263,7 @@ body {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(255,255,255,0.8);
+	background: rgba(255,255,255,0.3);
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 }
@@ -279,7 +291,7 @@ body {
 .slideshow nav span {
 	position: fixed;
 	z-index: 1000;
-	color: #59656c;
+	color: #6b6b6b;
 	text-align: center;
 	padding: 3%;
 	cursor: pointer;
@@ -301,7 +313,7 @@ body {
 	top: 0;
 	right: 0;
 	padding: 0.5em 1em;
-	color: #31373a;
+	color: #afafaf;
 }
 
 .icon:before,

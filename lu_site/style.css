@@ -63,6 +63,8 @@ body {
 	vertical-align: middle;
 	/* margin-bottom: 2vh; */
 	z-index: 99;
+	transition: transform .1s;
+
 }
 
 .menuright {
@@ -78,8 +80,12 @@ body {
 	transition: transform .1s;
 }
 
+#menuicon:hover {
+	transform: scale(1.1);
+}
 .menuitem:hover {
 	filter: brightness(0.4);
+	transform: scale(1.1);
 }
 
 
