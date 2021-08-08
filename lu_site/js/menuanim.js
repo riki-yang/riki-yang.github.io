@@ -12,13 +12,13 @@ $(document).ready(function(){
     }); 
     $("#titleicon").mouseenter(function(){
         $(this).css("filter", "brightness(20%)");
-        $(this).css("transform", "scale(1.2)");
+        $(this).css("transform", "scale(2.2)");
         $("#statementbkgd").fadeIn();
         $(".stateleft").fadeIn();
     }); 
     $("#titleicon").mouseleave(function(){
         $(this).css("filter", "brightness(100%)")
-        $(this).css("transform", "scale(1)");
+        $(this).css("transform", "scale(1.8)");
         $(".stateleft").fadeOut();
         $("#statementbkgd").fadeOut();
     }); 

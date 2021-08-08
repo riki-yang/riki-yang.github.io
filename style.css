@@ -7,6 +7,7 @@
 @media only screen and (orientation:portrait) and (max-width: 540px) {
     .slide, .main-nav { display:none; }
     #warning-message {
+        margin-left: auto;
         display:block; 
         font-size: large;
     }

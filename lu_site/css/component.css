@@ -154,17 +154,18 @@ body {
 	height: 100vh;
 	line-height: 95vh;
 	right: 0;
-	width: 5vw;
+	width: 6vw;
 	z-index: 2;
 }
 
 #titleicon {
 	right: 0;
 	padding-right: 2px;
-	max-width: 10vw;
+	max-width: 6vw;
 	display: inline-block;
 	vertical-align: middle;
 	transition: 0.5s;
+	transform: scale(1.8);
 }
 
 
@@ -291,7 +292,7 @@ body {
 .slideshow nav span {
 	position: fixed;
 	z-index: 1000;
-	color: #6b6b6b;
+	color: rgba(255, 255, 255, 0.6);
 	text-align: center;
 	padding: 3%;
 	cursor: pointer;
@@ -306,14 +307,19 @@ body {
 }
 
 .slideshow nav span.nav-next {
-	right: 0;
+	right: 10vw;
 }
+
+.slideshow nav span.nav-prev {
+	left: 10vw;
+}
+
 
 .slideshow nav span.nav-close {
 	top: 0;
 	right: 0;
 	padding: 0.5em 1em;
-	color: #afafaf;
+	color: rgba(255, 255, 255, 0.6);
 }
 
 .icon:before,

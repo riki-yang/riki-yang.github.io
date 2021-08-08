@@ -37,7 +37,7 @@ body {
 
 .menu {
 	height: 95vh;
-	/* line-height: 95vh; */
+	padding-top: 5vh;
 	padding-left: 0;
 	position: fixed;
 	z-index: 99;
