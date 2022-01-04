@@ -46,7 +46,6 @@ body {
 	display: flex;
 	/* background-color: black; */
 	cursor: pointer;
-
 }
 
 .menuleft {
@@ -61,10 +60,8 @@ body {
 	max-height: 10vh;
 	display: inline-block;
 	vertical-align: middle;
-	/* margin-bottom: 2vh; */
 	z-index: 99;
 	transition: transform .1s;
-
 }
 
 .menuright {
@@ -73,7 +70,6 @@ body {
 	width: 15vw;
 	max-width: 15vh;
 	margin-top: 41vh;
-	/* background-color: red; */
 }
 
 .menuitem {
