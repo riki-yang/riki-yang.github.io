@@ -1,0 +1,46 @@
+html {
+    scrollbar-width: none;
+}
+
+html body div {
+    margin: 0;
+}
+
+body {
+    background-image: url("img/top/BG.png");
+}
+
+.w100 {
+    width: 100%;
+}
+
+#topp_body {
+    background-image: url("img/top/BG.png");
+}
+
+.p90 {
+    margin: auto;
+    display: block;
+    width: 98vw;
+}
+
+.b32 {
+    margin: auto;
+    margin-top: 20vh;
+    text-align: center;
+    display: block;
+    width: 32vw;
+}
+
+#go_button {
+    z-index: 10;
+    margin: auto;
+    margin-top: -28vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: block;
+    width: 70vw;
+    background-image: url("img/top/go_button.png");
+    background-size: cover;
+}
