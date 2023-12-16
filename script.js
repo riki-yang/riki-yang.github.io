@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (isMobile) {
         // Trigger random wave animation every second on mobile devices
-        setInterval(triggerRandomWave, 1000);
+        setInterval(triggerRandomWave, 2000);
     }
 
     name.addEventListener('mouseover', function () {
