@@ -25,14 +25,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(() => {
                 resetAnimations(link);
-            }, 600); // Reset animations after 0.6 seconds
+            }, 1500); // Reset animations after 0.6 seconds
         });
 
         applyRandomWave(name);
 
         setTimeout(() => {
             resetAnimations(name);
-        }, 600); // Reset animations after 0.6 seconds
+        }, 1500); // Reset animations after 0.6 seconds
     }
 
     if (isMobile) {
