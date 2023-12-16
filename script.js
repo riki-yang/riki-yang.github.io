@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function applyRandomWave(element) {
         const letters = element.querySelectorAll('span');
         letters.forEach((letter, index) => {
-            const randomDistance = Math.random() * 40 - 20; // Adjust the range as needed
-            letter.style.setProperty('--random-distance', `${randomDistance}px`);
-            letter.style.animation = `wave 0.6s infinite alternate ${index * 0.1}s, moveRandom 1s ${Math.random()}s infinite alternate`;
+            const randomDistanceX = [Math.round(Math.random()) * 2 - 1] * 40 - 20;
+            const randomDistanceY = [Math.round(Math.random()) * 2 - 1] * 40 - 20;
+            letter.style.setProperty('--random-distanceX', `${randomDistanceX}px`);
+            letter.style.setProperty('--random-distanceY', `${randomDistanceY}px`);
+            letter.style.animation = `moveRandom 1s ${Math.random()}s infinite alternate`;
         });
     }
 
@@ -25,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(() => {
                 resetAnimations(link);
-            }, 1500); // Reset animations after 0.6 seconds
+            }, 1500); // Reset animations after 1.5 seconds
         });
 
         applyRandomWave(name);
 
         setTimeout(() => {
             resetAnimations(name);
-        }, 1500); // Reset animations after 0.6 seconds
+        }, 2000); // Rest for 2 seconds
     }
 
     if (isMobile) {
