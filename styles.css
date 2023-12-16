@@ -52,6 +52,6 @@ body {
         transform: translateY(0) translateX(0);
     }
     100% {
-        transform: translateY(0) translateX(var(--random-distance));
+        transform: translateY(var(--random-distance)) translateX(var(--random-distance));
     }
 }
