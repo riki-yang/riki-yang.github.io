@@ -14,6 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    function applyRandomJumpWave(element) {
+        const letters = element.querySelectorAll('span');
+        letters.forEach((letter, index) => {
+            if (Math.random() <= 0.2) {
+                const randomDistanceX = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
+                const randomDistanceY = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
+                letter.style.setProperty('--random-distanceX', `${randomDistanceX}px`);
+                letter.style.setProperty('--random-distanceY', `${randomDistanceY}px`);
+                letter.style.animation = `moveRandom 1s ${index * 0.2}s infinite alternate`;
+            }
+        });
+    }
+
     function resetAnimations(element) {
         const letters = element.querySelectorAll('span');
         letters.forEach(letter => {
@@ -23,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function triggerRandomWave() {
         links.forEach(link => {
-            applyRandomWave(link);
+            applyRandomJumpWave(link);
 
             setTimeout(() => {
                 resetAnimations(link);
             }, 1500); // Reset animations after 1.5 seconds
         });
 
-        applyRandomWave(name);
+        // applyRandomWave(name);
 
         setTimeout(() => {
             resetAnimations(name);
