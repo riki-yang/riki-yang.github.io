@@ -1,7 +1,57 @@
-.name {
-    font-size: x-large;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(140, 140, 140);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-.class {
-    font-size: large;
+.name {
+    margin-top: -10vh;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #eaeaea;
+    text-decoration: none;
+    position: relative;
+}
+
+.links {
+    text-decoration: none;
+    color: #dec9de;
+    margin: 5px;
+    display: inline-block;
+}
+
+.links span {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links.wave:hover span {
+    animation: wave 0.6s infinite alternate;
+}
+
+/* Add more styles for additional letters as needed */
+
+@keyframes wave {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes moveRandom {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(0) translateX(var(--random-distance));
+    }
 }
