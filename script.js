@@ -22,8 +22,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function triggerRandomWave() {
-        links.forEach(link => {
-            applyRandomWave(link);
+        // links.forEach(link => {
+        //     applyRandomWave(link);
+
+        //     setTimeout(() => {
+        //         resetAnimations(link);
+        //     }, 1500); // Reset animations after 1.5 seconds
+        // });
+
+        links.forEach((link, i) => {
+            setTimeout(() => {
+                applyRandomWave(link);
+            }, i * 1000);
 
             setTimeout(() => {
                 resetAnimations(link);
