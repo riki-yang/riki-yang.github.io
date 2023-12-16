@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function applyRandomWave(element) {
         const letters = element.querySelectorAll('span');
         letters.forEach((letter, index) => {
-            const randomDistanceX = [Math.round(Math.random()) * 2 - 1] * 40 - 20;
-            const randomDistanceY = [Math.round(Math.random()) * 2 - 1] * 40 - 20;
+            const randomDistanceX = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
+            const randomDistanceY = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
             letter.style.setProperty('--random-distanceX', `${randomDistanceX}px`);
             letter.style.setProperty('--random-distanceY', `${randomDistanceY}px`);
-            letter.style.animation = `moveRandom 1s ${Math.random()}s infinite alternate`;
+            letter.style.animation = `moveRandom 1s ${index * 0.2}s infinite alternate`;
         });
     }
 
@@ -22,18 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function triggerRandomWave() {
-        // links.forEach(link => {
-        //     applyRandomWave(link);
-
-        //     setTimeout(() => {
-        //         resetAnimations(link);
-        //     }, 1500); // Reset animations after 1.5 seconds
-        // });
-
-        links.forEach((link, i) => {
-            setTimeout(() => {
-                applyRandomWave(link);
-            }, i * 1000);
+        links.forEach(link => {
+            applyRandomWave(link);
 
             setTimeout(() => {
                 resetAnimations(link);
@@ -48,17 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (isMobile) {
-        // Trigger random wave animation every second on mobile devices
-        setInterval(triggerRandomWave, 2000);
+        // Trigger random wave animation on mobile devices
+        setInterval(triggerRandomWave, 3500);
     }
 
-    name.addEventListener('mouseover', function () {
-        applyRandomWave(name);
-    });
+    
+    // name.addEventListener('mouseover', function () {
+    //     applyRandomWave(name);
+    // });
 
-    name.addEventListener('mouseout', function () {
-        resetAnimations(name);
-    });
+    // name.addEventListener('mouseout', function () {
+    //     resetAnimations(name);
+    // });
 
     links.forEach(link => {
         const text = link.textContent;

@@ -25,14 +25,14 @@ body {
     margin-top: -10vh;
     font-size: 2em;
     margin-bottom: 10px;
-    color: #eaeaea;
+    color: #e3e0e0;
     text-decoration: none;
     position: relative;
 }
 
 .links {
     text-decoration: none;
-    color: #e3d9e3;
+    color: #d8d2d8;
     margin: 5px;
     display: inline-block;
 }
@@ -69,6 +69,6 @@ body {
         transform: translateY(0) translateX(0);
     }
     100% {
-        transform: translateX(var(--random-distanceX)) translateY(var(--random-distanceY));
+        transform: translateY(var(--random-distanceY)) translateX(var(--random-distanceX));
     }
 }
