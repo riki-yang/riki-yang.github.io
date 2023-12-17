@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const randomDistanceY = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
                 letter.style.setProperty('--random-distanceX', `${randomDistanceX}px`);
                 letter.style.setProperty('--random-distanceY', `${randomDistanceY}px`);
-                letter.style.animation = `moveRandom 1s ${index * 0.2}s infinite alternate`;
+                letter.style.animation = `moveRandom 1s ${index * 0.1}s infinite alternate`;
             }
         });
     }
@@ -40,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setTimeout(() => {
                 resetAnimations(link);
-            }, 1500); // Reset animations after 1.5 seconds
+            }, 5000); // Reset animations after 1.5 seconds
         });
 
         // applyRandomWave(name);
 
-        setTimeout(() => {
-            resetAnimations(name);
-        }, 2000); // Rest for 2 seconds
+        // setTimeout(() => {
+        //     resetAnimations(name);
+        // }, 2000); // Rest for 2 seconds
     }
 
     if (isMobile) {
