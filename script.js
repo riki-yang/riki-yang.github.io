@@ -1,138 +1,101 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const links = document.querySelectorAll('.links');
-    const name = document.querySelector('.name');
-    const isMobile = isMobileDevice(); // Custom function to check if the device is mobile
+// alphabet move animations
 
-    function applyRandomWave(element) {
-        const letters = element.querySelectorAll('span');
-        letters.forEach((letter, index) => {
-            const randomDistanceX = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
-            const randomDistanceY = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
-            letter.style.setProperty('--random-distanceX', `${randomDistanceX}px`);
-            letter.style.setProperty('--random-distanceY', `${randomDistanceY}px`);
-            letter.style.animation = `moveRandom 1s ${index * 0.2}s infinite alternate`;
-        });
-    }
-
-    function applyRandomJumpWave(element) {
-        const letters = element.querySelectorAll('span');
-        letters.forEach((letter, index) => {
-            if (Math.random() <= 0.2) {
-                const randomDistanceX = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
-                const randomDistanceY = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
-                letter.style.setProperty('--random-distanceX', `${randomDistanceX}px`);
-                letter.style.setProperty('--random-distanceY', `${randomDistanceY}px`);
-                letter.style.animation = `moveRandom 1s ${index * 0.1}s infinite alternate`;
-            }
-        });
-    }
-
-    function resetAnimations(element) {
-        const letters = element.querySelectorAll('span');
-        letters.forEach(letter => {
+function applyRandomWaveToLetters(element) {
+    const letters = element.querySelectorAll('span');
+    letters.forEach((letter, index) => {
+        const randomDistanceX = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
+        const randomDistanceY = (Math.round(Math.random()) * 2 - 1) * 40 - 20;
+        letter.style.setProperty('--random-distanceX', `${randomDistanceX}px`);
+        letter.style.setProperty('--random-distanceY', `${randomDistanceY}px`);
+        letter.style.animation = `moveRandomOnce 2s ${index * 0.2}s forwards`;
+        letter.addEventListener('animationend', function() {
             letter.style.animation = '';
         });
-    }
+    });
+}
 
-    function triggerRandomWave() {
-        links.forEach(link => {
-            applyRandomJumpWave(link);
+document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.links');
 
-            setTimeout(() => {
-                resetAnimations(link);
-            }, 5000); // Reset animations after 1.5 seconds
+    elements.forEach(element => {
+        // Wrap each letter in a span tag
+        element.innerHTML = element.textContent.split('').map(letter => `<span>${letter === ' ' ? '&nbsp;' : letter}</span>`).join('');
+
+        element.addEventListener('mouseover', function() {
+            applyRandomWaveToLetters(this);
+            const totalAnimationTime = this.querySelectorAll('span').length * 0.2 + 1000;
+            this.interval = setInterval(() => applyRandomWaveToLetters(this), totalAnimationTime);
         });
 
-        // applyRandomWave(name);
-
-        // setTimeout(() => {
-        //     resetAnimations(name);
-        // }, 2000); // Rest for 2 seconds
-    }
-
-    if (isMobile) {
-        // Trigger random wave animation on mobile devices
-        setInterval(triggerRandomWave, 3500);
-    }
-
-    
-    // name.addEventListener('mouseover', function () {
-    //     applyRandomWave(name);
-    // });
-
-    // name.addEventListener('mouseout', function () {
-    //     resetAnimations(name);
-    // });
-
-    links.forEach(link => {
-        const text = link.textContent;
-        link.innerHTML = text
-            .split('')
-            .map((char, index) => `<span class="char${index + 1}">${char}</span>`)
-            .join('');
-
-        link.addEventListener('mouseover', function () {
-            applyRandomWave(link);
-        });
-
-        link.addEventListener('mouseout', function () {
-            resetAnimations(link);
+        element.addEventListener('mouseout', function() {
+            clearInterval(this.interval);
         });
     });
 });
 
-function isMobileDevice() {
-    return window.innerWidth <= 768; // Adjust the breakpoint as needed
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const overlay = document.querySelector('.overlay');
-    const trailLength = 50; // Number of trail points
-    const lineWidth = 10; // Width of the trail lines
-
-    const trailPoints = Array.from({ length: trailLength }, () => ({ x: 0, y: 0 }));
-    let currentIndex = 0;
-
-    document.addEventListener('mousemove', function (event) {
-        const nextIndex = (currentIndex + 1) % trailLength;
-        const currentPoint = trailPoints[currentIndex];
-        const nextPoint = trailPoints[nextIndex];
-
-        currentPoint.x = event.pageX;
-        currentPoint.y = event.pageY;
-
-        drawTrail();
-
-        currentIndex = nextIndex;
-    });
-
-    function drawTrail() {
-        const ctx = overlay.getContext('2d');
-        ctx.clearRect(0, 0, overlay.width, overlay.height);
-
-        ctx.lineCap = 'round';
-        ctx.lineWidth = lineWidth;
-        ctx.strokeStyle = 'rgba(255, 255, 255, 1)'; // White color
-
-        ctx.beginPath();
-        ctx.moveTo(trailPoints[currentIndex].x, trailPoints[currentIndex].y);
-
-        for (let i = 1; i <= trailLength; i++) {
-            const index = (currentIndex + i) % trailLength;
-            ctx.lineTo(trailPoints[index].x, trailPoints[index].y);
+// slider nav
+window.onwheel = function(e) {
+    e.preventDefault();
+    const slider = document.querySelector('.slider');
+    slider.scrollLeft -= e.deltaY;
+    smoothScroll(slider, slider.scrollLeft, 600);
+    // Add fade-in effect
+    const images = slider.querySelectorAll('img');
+    images.forEach(img => {
+        const imgLeft = img.getBoundingClientRect().left;
+        const imgRight = img.getBoundingClientRect().right;
+        if (imgLeft < window.innerWidth && imgRight > 0) {
+            img.classList.add('fade-in');
+        } else {
+            img.classList.remove('fade-in');
         }
+    });
+};
 
-        ctx.stroke();
+// smooth scroll
+document.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    const slider = document.querySelector('.slider');
+    const amount = e.deltaY;
+    const currentScroll = slider.scrollLeft;
+    const newScroll = currentScroll - amount;
+    smoothScroll(slider, newScroll, 600); // 600 is the duration of the animation in milliseconds
+});
+
+function smoothScroll(element, target, duration) {
+    const start = element.scrollLeft;
+    const change = target - start;
+    let startTime = null;
+
+    function animateScroll(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        element.scrollLeft = start + change * progress;
+        if (progress < 1) requestAnimationFrame(animateScroll);
     }
 
-    // Resize overlay to match the window size
-    window.addEventListener('resize', function () {
-        overlay.width = window.innerWidth;
-        overlay.height = window.innerHeight;
-        drawTrail();
-    });
+    requestAnimationFrame(animateScroll);
+}
 
-    // Initial setup
-    overlay.width = window.innerWidth;
-    overlay.height = window.innerHeight;
+
+document.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    const slider = document.querySelector('.slider');
+    const amount = e.deltaY;
+    const currentScroll = slider.scrollLeft;
+    const newScroll = currentScroll - amount;
+    smoothScroll(slider, newScroll, 600); // 600 is the duration of the animation in milliseconds
+
+    // Add fade-in effect
+    const images = slider.querySelectorAll('img');
+    images.forEach(img => {
+        const imgLeft = img.getBoundingClientRect().left;
+        const imgRight = img.getBoundingClientRect().right;
+        if (imgLeft < window.innerWidth && imgRight > 0) {
+            img.classList.add('fade-in');
+        } else {
+            img.classList.remove('fade-in');
+        }
+    });
 });
