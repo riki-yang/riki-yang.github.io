@@ -29,5 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         element.addEventListener('mouseout', function() {
             clearInterval(this.interval);
         });
+
+        applyRandomWaveToLetters(element);
     });
 });

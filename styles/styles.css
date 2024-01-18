@@ -23,6 +23,12 @@ body {
     position: relative;
 }
 
+#topleft {
+    position: fixed;
+    top: 0;
+    left: 0.5; 
+}
+
 .links {
     text-decoration: none;
     color: #d8d2d8;
@@ -38,17 +44,20 @@ body {
 
 /* css for gallery */
 .slider {
+    padding: 3%;
+    padding-top: 10%;
     max-height: 90vh;
     bottom: 0;
     position: absolute;
-    width: max-content; 
+    width: max-content;
     display: flex; /* Arrange the images in a row */
-    overflow: auto; /* Add a horizontal scrollbar when necessary */
+    overflow: scroll; /* Add a horizontal scrollbar when necessary */
     align-items: flex-end; /* Align the images to the bottom */
     white-space: nowrap; /* Prevent the images from wrapping to the next line */
 }
 
 .slide {
+    margin-right: 5vw;
     height: auto !important;
     transition: transform 0.3s ease; /* Smooth transition */
 }

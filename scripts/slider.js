@@ -1,34 +1,9 @@
-// Get the slider element
-const slider = document.querySelector('.slider');
-
-
-// Function to handle scrolling
 function handleScroll(e) {
-    console.log('handleScroll function called');
-    e.preventDefault();
-    console.log(e);
-
-    const oldScrollLeft = slider.scrollLeft;
-    console.log('oldScrollLeft:', oldScrollLeft);
-
-    // Adjust the scrollLeft property based on deltaY
-    // Multiply by a constant to increase scroll amount
-    slider.scrollLeft += (e.deltaX + e.deltaY) * 10;
-
-    const newScrollLeft = slider.scrollLeft;
-    console.log('newScrollLeft:', newScrollLeft);
-
-    // Add fade-in effect
-    const images = slider.querySelectorAll('img');
-    images.forEach(img => {
-        const imgLeft = img.getBoundingClientRect().left;
-        const imgRight = img.getBoundingClientRect().right;
-        if (imgLeft < window.innerWidth && imgRight > 0) {
-            img.classList.add('fade-in');
-        } else {
-            img.classList.remove('fade-in');
-        }
-    });
+    // If the user is trying to scroll to the left and the scroll position is at the start of the page
+    if (e.deltaX < 1 && slider.scrollLeft <= 0) {
+        console.log(1)
+        e.preventDefault(); // Prevent the default action
+    }
 }
 
 // Function to handle keydown events
@@ -61,4 +36,3 @@ function smoothScroll(element, target, duration) {
 // Event listeners
 window.addEventListener('touchmove', handleScroll, { passive: false });
 window.addEventListener('keydown', handleKeydown);
-slider.addEventListener('wheel', handleScroll);
