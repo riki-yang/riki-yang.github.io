@@ -2,7 +2,6 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: rgb(140, 140, 140);
     color: #ffffff;
-    overflow: hidden;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -41,26 +40,30 @@ body {
 .slider {
     max-height: 90vh;
     z-index: 1;
-    position: absolute;
     bottom: 0;
+    position: absolute;
     width: max-content; 
     display: flex; /* Arrange the images in a row */
-    overflow-x: auto; /* Add a horizontal scrollbar when necessary */
+    overflow: scroll; /* Add a horizontal scrollbar when necessary */
     align-items: flex-end; /* Align the images to the bottom */
     white-space: nowrap; /* Prevent the images from wrapping to the next line */
 }
 
 .slide {
-    z-index: 2;
+    z-index: 1;
     height: auto !important;
-}
-
-.slide {
     transition: transform 0.3s ease; /* Smooth transition */
 }
 
 .slide:hover {
     transform: scale(1.2); /* Enlarge the image */
     transform-origin: bottom center;
-    z-index: 1; /* Bring the image to the front */
+    z-index: 2; /* Bring the image to the front */
+}
+
+/* styles for animations */
+@keyframes moveRandomOnce {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(var(--random-distanceX), var(--random-distanceY)); }
+    100% { transform: translate(0, 0); }
 }
