@@ -26,7 +26,7 @@ body {
 #topleft {
     position: fixed;
     top: 0;
-    left: 0.5; 
+    left: 1vw; 
 }
 
 .links {
@@ -44,8 +44,8 @@ body {
 
 /* css for gallery */
 .slider {
-    padding: 3%;
-    padding-top: 10%;
+    padding: 1%;
+    padding-top: 11%;
     max-height: 90vh;
     bottom: 0;
     position: absolute;
@@ -57,13 +57,13 @@ body {
 }
 
 .slide {
-    margin-right: 5vw;
+    margin: 2.5vw;
     height: auto !important;
     transition: transform 0.3s ease; /* Smooth transition */
 }
 
 .slide:hover {
-    transform: scale(1.2); /* Enlarge the image */
+    transform: scale(1.1); /* Enlarge the image */
     transform-origin: bottom center;
 }
 

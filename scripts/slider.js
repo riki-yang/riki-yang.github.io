@@ -33,6 +33,25 @@ function smoothScroll(element, target, duration) {
     requestAnimationFrame(animateScroll);
 }
 
+// click to slide
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.slider');
+    const slides = slider.querySelectorAll('.slide');
+
+    slides.forEach(slide => {
+        slide.addEventListener('click', function() {
+            // Calculate the scroll position needed to center the image
+            const scrollPosition = this.offsetLeft - (slider.offsetWidth / 2) + (this.offsetWidth / 2);
+
+            // Smoothly scroll the slider to the calculated position
+            slider.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+
 // Event listeners
 window.addEventListener('touchmove', handleScroll, { passive: false });
 window.addEventListener('keydown', handleKeydown);
