@@ -39,18 +39,16 @@ body {
 /* css for gallery */
 .slider {
     max-height: 90vh;
-    z-index: 1;
     bottom: 0;
     position: absolute;
     width: max-content; 
     display: flex; /* Arrange the images in a row */
-    overflow: scroll; /* Add a horizontal scrollbar when necessary */
+    overflow: auto; /* Add a horizontal scrollbar when necessary */
     align-items: flex-end; /* Align the images to the bottom */
     white-space: nowrap; /* Prevent the images from wrapping to the next line */
 }
 
 .slide {
-    z-index: 1;
     height: auto !important;
     transition: transform 0.3s ease; /* Smooth transition */
 }
@@ -58,7 +56,6 @@ body {
 .slide:hover {
     transform: scale(1.2); /* Enlarge the image */
     transform-origin: bottom center;
-    z-index: 2; /* Bring the image to the front */
 }
 
 /* styles for animations */

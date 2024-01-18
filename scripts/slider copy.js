@@ -1,6 +1,8 @@
 // Get the slider element
 const slider = document.querySelector('.slider');
 
+// Add event listener for scroll event
+window.addEventListener('wheel', handleScroll, { passive: false });
 
 // Function to handle scrolling
 function handleScroll(e) {
