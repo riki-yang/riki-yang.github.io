@@ -86,7 +86,7 @@ function navigateSlides(keyCode, slides) {
     });
 
     //change image in lightbox
-    // const lightbox = document.getElementById('lightbox');
+    const lightbox = document.getElementById('lightbox');
     lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
 
     // Add the 'enlarged' class to the new current slide
