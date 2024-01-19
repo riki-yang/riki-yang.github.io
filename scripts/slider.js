@@ -43,7 +43,7 @@ function handleTouch(e) {
             if (Math.abs(startX - endX) < 10) {  // If the touch movement was less than 10px, it's a tap
                 // Find the tapped slide
                 for (let i = 0; i < slides.length; i++) {
-                    if (slides[i].contains(e.target)) {
+                    if (slides[i] === e.target) {
                         currentSlide = i;
                         break;
                     }
