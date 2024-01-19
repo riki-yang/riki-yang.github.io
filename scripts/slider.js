@@ -43,14 +43,8 @@ function handleTouch(e) {
             }
         }
 
-        // Add the 'enlarged' class to the tapped slide and remove it from all other slides
-        for (let slide of slides) {
-            slide.classList.remove('enlarged');
-        }
-        slides[currentSlide].classList.add('enlarged');
-
-        // Scroll the slider to the current slide
-        slider.scrollLeft = slides[currentSlide].offsetLeft;
+        // Call the navigateSlides function to update the current slide and scroll the slider
+        navigateSlides(null, slides);
     }
 }
 
