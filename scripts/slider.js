@@ -24,7 +24,6 @@ function handleKeydown(e) {
 function handleTouch(e) {
     const slider = document.querySelector('.slider');
     const slides = slider.getElementsByClassName('slide');
-    const lightbox = document.getElementById('lightbox');
 
     if (e.type === 'touchend') {
         e.preventDefault();  // Prevent the default behavior
@@ -44,16 +43,11 @@ function handleTouch(e) {
             }
         }
 
-        // If the lightbox is visible, update the lightbox image
-        // If the lightbox is not visible, add the 'enlarged' class to the tapped slide and remove it from all other slides
-        if (lightboxVisible) {
-            lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
-        } else {
-            for (let slide of slides) {
-                slide.classList.remove('enlarged');
-            }
-            slides[currentSlide].classList.add('enlarged');
+        // Add the 'enlarged' class to the tapped slide and remove it from all other slides
+        for (let slide of slides) {
+            slide.classList.remove('enlarged');
         }
+        slides[currentSlide].classList.add('enlarged');
     }
 }
 
