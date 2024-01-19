@@ -26,46 +26,33 @@ function handleTouch(e) {
     const slides = slider.getElementsByClassName('slide');
     const lightbox = document.getElementById('lightbox');
 
-    if (e.type === 'touchstart') {
-        startX = e.touches[0].clientX;
-    } else if (e.type === 'touchmove') {
-        endX = e.touches[0].clientX;
-    } else if (e.type === 'touchend') {
+    if (e.type === 'touchend') {
         e.preventDefault();  // Prevent the default behavior
-        if (lightboxVisible) {  // If the lightbox is visible
-            if (startX < endX) {  // Swipe right
-                currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
-            } else if (startX > endX) {  // Swipe left
-                currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
-            }
-            lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
-        } else {  // If the lightbox is not visible
-            if (Math.abs(startX - endX) < 10) {  // If the touch movement was less than 10px, it's a tap
-                // Find the tapped slide
-                let target = e.target;
-                while (target && !target.classList.contains('slide')) {
-                    target = target.parentNode;
-                }
 
-                if (target) {
-                    for (let i = 0; i < slides.length; i++) {
-                        if (slides[i] === target) {
-                            currentSlide = i;
-                            break;
-                        }
-                    }
+        // Find the tapped slide
+        let target = e.target;
+        while (target && !target.classList.contains('slide')) {
+            target = target.parentNode;
+        }
+
+        if (target) {
+            for (let i = 0; i < slides.length; i++) {
+                if (slides[i] === target) {
+                    currentSlide = i;
+                    break;
                 }
-                // Add the 'enlarged' class to the tapped slide and remove it from all other slides
-                for (let slide of slides) {
-                    slide.classList.remove('enlarged');
-                }
-                slides[currentSlide].classList.add('enlarged');
-            } else if (startX < endX) {  // Swipe right
-                currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
-            } else if (startX > endX) {  // Swipe left
-                currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
             }
-            navigateSlides(null, slides);
+        }
+
+        // If the lightbox is visible, update the lightbox image
+        // If the lightbox is not visible, add the 'enlarged' class to the tapped slide and remove it from all other slides
+        if (lightboxVisible) {
+            lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
+        } else {
+            for (let slide of slides) {
+                slide.classList.remove('enlarged');
+            }
+            slides[currentSlide].classList.add('enlarged');
         }
     }
 }
