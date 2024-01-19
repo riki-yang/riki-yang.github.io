@@ -3,6 +3,7 @@ let lightboxVisible = false;  // Start with the lightbox hidden
 let startX = 0;  // Start X position of the swipe
 let endX = 0;  // End X position of the swipe
 
+// Function to handle keydown and swipe events
 function handleEvent(e) {
     const slider = document.querySelector('.slider');
     const slides = slider.getElementsByClassName('slide');
@@ -10,17 +11,19 @@ function handleEvent(e) {
     let middlePosition = 0;
     let scrollDistance = 0;
 
-    if (e.keyCode === 13) { // Enter key
-        toggleLightbox();
-    } else if (e.keyCode === 27) { // Escape key
-        hideLightbox();
-    } else if (e.keyCode === 37 || e.keyCode === 39) { // left or right arrow key
-        navigateSlides(e.keyCode);
-    }
-
-    e.preventDefault();  // Prevent the default behavior
-
-    function toggleLightbox() {
+    if (e.type === 'touchstart') {
+        startX = e.touches[0].clientX;
+        return;
+    } else if (e.type === 'touchmove') {
+        endX = e.touches[0].clientX;
+        return;
+    } else if (e.type === 'touchend') {
+        if (startX < endX) {  // Swipe right
+            currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
+        } else if (startX > endX) {  // Swipe left
+            currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
+        }
+    } else if (e.keyCode === 13) { // Enter key
         if (lightboxVisible) {
             lightbox.style.display = 'none';
             lightboxVisible = false;
@@ -29,44 +32,41 @@ function handleEvent(e) {
             lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
             lightboxVisible = true;
         }
-    }
-
-    function hideLightbox() {
+        return;
+    } else if (e.keyCode === 27) { // Escape key
         if (lightboxVisible) {
             lightbox.style.display = 'none';
             lightboxVisible = false;
         }
+        return;
+    } else if (e.keyCode === 37) { // left arrow key
+        currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
+    } else if (e.keyCode === 39) { // right arrow key
+        currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
     }
 
-    function navigateSlides(keyCode) {
-        // Remove the 'enlarged' class from the current slide
-        for (let slide of slides) {
-            slide.classList.remove('enlarged');
-        }
+    e.preventDefault();  // Prevent the default behavior
 
-        if (keyCode === 37) { // left arrow key
-            currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
-        } else if (keyCode === 39) { // right arrow key
-            currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
-        }
-
-        // Add the 'enlarged' class to the new current slide
-        slides[currentSlide].classList.add('enlarged');
-
-        // Change the lightbox image
-        lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
-
-        // Get the middle position of the current slide
-        middlePosition = slides[currentSlide].getBoundingClientRect().left + slides[currentSlide].getBoundingClientRect().width / 2;
-        scrollDistance = middlePosition - window.innerWidth / 2;
-
-        // Smoothly scroll to the middle position
-        window.scrollBy({
-            left: scrollDistance,
-            top: 0,
-            behavior: 'smooth'
-        });
+    // Remove the 'enlarged' class from the current slide
+    for (let slide of slides) {
+        slide.classList.remove('enlarged');
     }
+    // Add the 'enlarged' class to the new current slide
+    slides[currentSlide].classList.add('enlarged');
+
+    // Change the lightbox image
+    lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
+
+    // Get the middle position of the current slide
+    middlePosition = slides[currentSlide].getBoundingClientRect().left + slides[currentSlide].getBoundingClientRect().width / 2;
+    scrollDistance = middlePosition - window.innerWidth / 2;
+
+    // Smoothly scroll to the middle position
+    window.scrollBy({
+        left: scrollDistance,
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 // Add event listeners for keydown and touch events
