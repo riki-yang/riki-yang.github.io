@@ -92,6 +92,17 @@ function navigateSlides(keyCode, slides) {
         currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
     }
 
+    let scrollDistance = slides[currentSlide].getBoundingClientRect().left + slides[currentSlide].getBoundingClientRect().width / 2 - window.innerWidth / 2;
+    window.scrollBy({
+        left: scrollDistance,
+        top: 0,
+        behavior: 'smooth'
+    });
+
+    //change image in lightbox
+    // const lightbox = document.getElementById('lightbox');
+    lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
+
     // Add the 'enlarged' class to the new current slide
     slides[currentSlide].classList.add('enlarged');
 }
