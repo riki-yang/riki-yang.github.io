@@ -42,10 +42,17 @@ function handleTouch(e) {
         } else {  // If the lightbox is not visible
             if (Math.abs(startX - endX) < 10) {  // If the touch movement was less than 10px, it's a tap
                 // Find the tapped slide
-                for (let i = 0; i < slides.length; i++) {
-                    if (slides[i] === e.target) {
-                        currentSlide = i;
-                        break;
+                let target = e.target;
+                while (target && !target.classList.contains('slide')) {
+                    target = target.parentNode;
+                }
+
+                if (target) {
+                    for (let i = 0; i < slides.length; i++) {
+                        if (slides[i] === target) {
+                            currentSlide = i;
+                            break;
+                        }
                     }
                 }
                 // Add the 'enlarged' class to the tapped slide and remove it from all other slides
