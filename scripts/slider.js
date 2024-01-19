@@ -3,13 +3,11 @@ window.onload = function() {
 
     slides.forEach((slide) => {
         // Set the initial background color and opacity
-        slide.style.background = '#ccc';
-        slide.style.opacity = '0.5';
+        slide.style.backgroundColor = 'rgba(240, 248, 255, 0.32)';
 
         // Function to update the slide style when the image is loaded
         function updateSlideStyle() {
-            slide.style.opacity = '1';
-            slide.style.background = 'none';
+            slide.style.backgroundColor = 'rgba(240, 248, 255, 0)';
         }
 
         if (slide.complete) {
@@ -116,7 +114,7 @@ function navigateSlides(keyCode, slides) {
     lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
 
     // Add the 'enlarged' class to the new current slide
-    slides[currentSlide].classList.add('enlarged');
+    // slides[currentSlide].classList.add('enlarged');
 }
 
 // Add event listeners for keydown and touch events
