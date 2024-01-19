@@ -1,8 +1,9 @@
 let currentSlide = 0;  // Start with the first slide
 let lightboxVisible = false;  // Start with the lightbox hidden
+let startX = 0;  // Start X position of the swipe
+let endX = 0;  // End X position of the swipe
 
-// Function to handle keydown events
-function handleKeydown(e) {
+function handleEvent(e) {
     const slider = document.querySelector('.slider');
     const slides = slider.getElementsByClassName('slide');
     const lightbox = document.getElementById('lightbox');
@@ -10,6 +11,16 @@ function handleKeydown(e) {
     let scrollDistance = 0;
 
     if (e.keyCode === 13) { // Enter key
+        toggleLightbox();
+    } else if (e.keyCode === 27) { // Escape key
+        hideLightbox();
+    } else if (e.keyCode === 37 || e.keyCode === 39) { // left or right arrow key
+        navigateSlides(e.keyCode);
+    }
+
+    e.preventDefault();  // Prevent the default behavior
+
+    function toggleLightbox() {
         if (lightboxVisible) {
             lightbox.style.display = 'none';
             lightboxVisible = false;
@@ -18,44 +29,56 @@ function handleKeydown(e) {
             lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
             lightboxVisible = true;
         }
-        return;
-    } else if (e.keyCode === 27) { // Escape key
+    }
+
+    function hideLightbox() {
         if (lightboxVisible) {
             lightbox.style.display = 'none';
             lightboxVisible = false;
         }
-        return;
     }
 
-    e.preventDefault();  // Prevent the default behavior
+    function navigateSlides(keyCode) {
+        // Remove the 'enlarged' class from the current slide
+        for (let slide of slides) {
+            slide.classList.remove('enlarged');
+        }
 
-    // Remove the 'enlarged' class from the current slide
-    slides[currentSlide].classList.remove('enlarged');
+        if (keyCode === 37) { // left arrow key
+            currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
+        } else if (keyCode === 39) { // right arrow key
+            currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
+        }
 
-    if (e.keyCode === 37) { // left arrow key
-        currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
-    } else if (e.keyCode === 39) { // right arrow key
-        currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
+        // Add the 'enlarged' class to the new current slide
+        slides[currentSlide].classList.add('enlarged');
+
+        // Change the lightbox image
+        lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
+
+        // Get the middle position of the current slide
+        middlePosition = slides[currentSlide].getBoundingClientRect().left + slides[currentSlide].getBoundingClientRect().width / 2;
+        scrollDistance = middlePosition - window.innerWidth / 2;
+
+        // Smoothly scroll to the middle position
+        window.scrollBy({
+            left: scrollDistance,
+            top: 0,
+            behavior: 'smooth'
+        });
     }
-
-    // Add the 'enlarged' class to the new current slide
-    slides[currentSlide].classList.add('enlarged');
-
-    // Change the lightbox image
-    lightbox.style.backgroundImage = `url(${slides[currentSlide].src})`;
-
-    // Get the middle position of the current slide
-    middlePosition = slides[currentSlide].getBoundingClientRect().left + slides[currentSlide].getBoundingClientRect().width / 2;
-    scrollDistance = middlePosition - window.innerWidth / 2;
-
-    // Smoothly scroll to the middle position
-    window.scrollBy({
-        left: scrollDistance,
-        top: 0,
-        behavior: 'smooth'
-    });
 }
 
+// Add event listeners for keydown and touch events
+window.addEventListener('keydown', handleEvent);
+window.addEventListener('touchstart', handleEvent);
+window.addEventListener('touchmove', handleEvent);
+window.addEventListener('touchend', handleEvent);
+
+
+
+
+// click navigation
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.getElementById('imageSlider');
     const slides = slider.getElementsByClassName('slide');
@@ -93,6 +116,3 @@ document.addEventListener('DOMContentLoaded', function () {
         lightbox.style.display = 'none';
     });
 });
-
-// Event listeners
-window.addEventListener('keydown', handleKeydown);
