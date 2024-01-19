@@ -30,7 +30,15 @@ function handleTouch(e) {
     } else if (e.type === 'touchmove') {
         endX = e.touches[0].clientX;
     } else if (e.type === 'touchend') {
-        if (startX < endX) {  // Swipe right
+        if (Math.abs(startX - endX) < 10) {  // If the touch movement was less than 10px, it's a tap
+            // Find the tapped slide
+            for (let i = 0; i < slides.length; i++) {
+                if (slides[i].contains(e.target)) {
+                    currentSlide = i;
+                    break;
+                }
+            }
+        } else if (startX < endX) {  // Swipe right
             currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
         } else if (startX > endX) {  // Swipe left
             currentSlide = (currentSlide + 1) % slides.length;  // Loop back to the first image
