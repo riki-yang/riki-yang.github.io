@@ -31,6 +31,7 @@ function handleTouch(e) {
     } else if (e.type === 'touchmove') {
         endX = e.touches[0].clientX;
     } else if (e.type === 'touchend') {
+        e.preventDefault();  // Prevent the default behavior
         if (lightboxVisible) {  // If the lightbox is visible
             if (startX < endX) {  // Swipe right
                 currentSlide = Math.max(currentSlide - 1, 0);  // Don't go below 0
