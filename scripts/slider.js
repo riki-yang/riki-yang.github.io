@@ -1,3 +1,29 @@
+window.onload = function() {
+    const slides = document.querySelectorAll('.slide');
+
+    slides.forEach((slide) => {
+        // Set the initial background color and opacity
+        slide.style.background = '#ccc';
+        slide.style.opacity = '0.5';
+
+        // Function to update the slide style when the image is loaded
+        function updateSlideStyle() {
+            slide.style.opacity = '1';
+            slide.style.background = 'none';
+        }
+
+        if (slide.complete) {
+            // If the image is already loaded, update the slide style immediately
+            updateSlideStyle();
+        } else {
+            // Otherwise, set the onload event handler to update the slide style
+            slide.onload = updateSlideStyle;
+        }
+    });
+};
+
+
+
 let currentSlide = 0;  // Start with the first slide
 let lightboxVisible = false;  // Start with the lightbox hidden
 let startX = 0;  // Start X position of the swipe

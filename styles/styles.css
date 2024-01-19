@@ -54,11 +54,10 @@ body {
 }
 
 .slide {
-    transition: opacity 1s ease-in-out;
-    opacity: 0;
     margin: 2.5vw;
     height: auto !important;
     overflow: scroll;
+    transition: opacity 1s ease-in-out;
     transition: transform 0.3s ease; /* Smooth transition */
 }
 
