@@ -6,6 +6,7 @@ body {
     padding: 0;
     height: 100vh;
     width: max-content;
+    overflow: auto;
 }
 
 .name {
@@ -57,6 +58,7 @@ body {
     opacity: 0;
     margin: 2.5vw;
     height: auto !important;
+    overflow: scroll;
     transition: transform 0.3s ease; /* Smooth transition */
 }
 
