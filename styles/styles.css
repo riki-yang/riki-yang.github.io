@@ -18,8 +18,9 @@ body {
 }
 
 #topleft {
+    margin-top: 0;
     position: fixed;
-    top: 0;
+    top: 0.5vh;
     left: 1vw; 
 }
 
