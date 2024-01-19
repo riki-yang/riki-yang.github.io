@@ -48,6 +48,9 @@ function handleTouch(e) {
             slide.classList.remove('enlarged');
         }
         slides[currentSlide].classList.add('enlarged');
+
+        // Scroll the slider to the current slide
+        slider.scrollLeft = slides[currentSlide].offsetLeft;
     }
 }
 
