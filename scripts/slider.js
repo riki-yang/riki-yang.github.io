@@ -36,12 +36,11 @@ function handleKeydown(e) {
 // click to slide
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.slider');
-    console.log(slider);
     const slides = slider.querySelectorAll('.slide');
 
     slides.forEach(slide => {
         slide.addEventListener('click', function() {
-            // Calculate the scroll position needed to center the image
+            // Calculate the scroll position needed to center the slide
             const scrollPosition = this.offsetLeft - (slider.offsetWidth / 2) + (this.offsetWidth / 2);
 
             // Smoothly scroll the slider to the calculated position
