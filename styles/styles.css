@@ -8,13 +8,6 @@ body {
     width: max-content;
 }
 
-#links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .name {
     margin-top: -10vh;
     font-size: 2em;
@@ -28,19 +21,6 @@ body {
     position: fixed;
     top: 0;
     left: 1vw; 
-}
-
-.links {
-    text-decoration: none;
-    color: #d8d2d8;
-    margin: 5px;
-    padding-top: 1vh;
-    display: inline-block;
-}
-
-.links span {
-    display: inline-block;
-    transition: transform 0.3s ease-in-out;
 }
 
 /* css for gallery */

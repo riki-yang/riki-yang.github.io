@@ -17,25 +17,26 @@ function handleKeydown(e) {
 }
 
 // Function for smooth scrolling
-function smoothScroll(element, target, duration) {
-    const start = element.scrollLeft;
-    const change = target - start;
-    let startTime = null;
+// function smoothScroll(element, target, duration) {
+//     const start = element.scrollLeft;
+//     const change = target - start;
+//     let startTime = null;
 
-    function animateScroll(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        element.scrollLeft = start + change * progress;
-        if (progress < 1) requestAnimationFrame(animateScroll);
-    }
+//     function animateScroll(currentTime) {
+//         if (startTime === null) startTime = currentTime;
+//         const elapsed = currentTime - startTime;
+//         const progress = Math.min(elapsed / duration, 1);
+//         element.scrollLeft = start + change * progress;
+//         if (progress < 1) requestAnimationFrame(animateScroll);
+//     }
 
-    requestAnimationFrame(animateScroll);
-}
+//     requestAnimationFrame(animateScroll);
+// }
 
 // click to slide
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.slider');
+    console.log(slider);
     const slides = slider.querySelectorAll('.slide');
 
     slides.forEach(slide => {

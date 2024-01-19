@@ -1,0 +1,45 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(140, 140, 140);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: max-content;
+}
+
+#links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    margin-top: -10vh;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #e3e0e0;
+    text-decoration: none;
+    position: relative;
+}
+
+.links {
+    text-decoration: none;
+    color: #d8d2d8;
+    margin: 5px;
+    padding-top: 1vh;
+    display: inline-block;
+}
+
+.links span {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* styles for animations */
+@keyframes moveRandomOnce {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(var(--random-distanceX), var(--random-distanceY)); }
+    100% { transform: translate(0, 0); }
+}
