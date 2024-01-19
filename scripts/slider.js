@@ -9,5 +9,4 @@ function handleKeydown(e) {
 }
 
 // Event listeners
-window.addEventListener('touchmove', handleScroll, { passive: false });
 window.addEventListener('keydown', handleKeydown);
